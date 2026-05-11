@@ -21,16 +21,22 @@ function Login() {
         }
       )
 
-      localStorage.setItem(
-        "token",
-        response.data.token
-      )
+      alert(response.data.message)
 
       navigate("/dashboard")
 
     } catch (error) {
 
-      alert(error.response.data.message)
+      console.log(error)
+
+      if (error.response) {
+
+        alert(error.response.data.message)
+
+      } else {
+
+        alert("Server Error")
+      }
     }
   }
 
@@ -48,6 +54,7 @@ function Login() {
           type="email"
           placeholder="Enter Email"
           className="w-full p-3 border rounded-lg mb-4"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
 
@@ -55,6 +62,7 @@ function Login() {
           type="password"
           placeholder="Enter Password"
           className="w-full p-3 border rounded-lg mb-4"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
