@@ -1,66 +1,32 @@
-import { useNavigate } from "react-router-dom"
-import { useEffect } from "react"
+import { Link } from "react-router-dom"
 
 function Dashboard() {
 
-  const navigate = useNavigate()
-
-  useEffect(() => {
-
-    const token = localStorage.getItem("token")
-
-    if (!token) {
-
-      navigate("/")
-    }
-
-  }, [])
-
-  const handleLogout = () => {
-
-    localStorage.removeItem("token")
-
-    navigate("/")
-  }
-
   return (
 
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+    <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center">
 
-      <div className="bg-white p-10 rounded-2xl shadow-2xl w-[400px]">
+      <h1 className="text-4xl font-bold text-white mb-10">
+        Dashboard
+      </h1>
 
-        <h1 className="text-3xl font-bold text-center mb-3">
-          Dashboard
-        </h1>
+      <div className="flex gap-6">
 
-        <p className="text-center text-gray-600 mb-8">
-          Welcome to AI Leave Management System
-        </p>
+        <Link to="/apply-leave">
 
-        <div className="flex flex-col gap-4">
-
-          <button
-            className="bg-blue-600 text-white p-3 rounded-lg"
-            onClick={() => navigate("/apply-leave")}
-          >
+          <button className="bg-blue-600 text-white px-6 py-3 rounded-xl">
             Apply Leave
           </button>
 
-          <button
-            className="bg-green-600 text-white p-3 rounded-lg"
-            onClick={() => navigate("/leave-history")}
-          >
+        </Link>
+
+        <Link to="/leave-history">
+
+          <button className="bg-green-600 text-white px-6 py-3 rounded-xl">
             Leave History
           </button>
 
-          <button
-            className="bg-red-600 text-white p-3 rounded-lg"
-            onClick={handleLogout}
-          >
-            Logout
-          </button>
-
-        </div>
+        </Link>
 
       </div>
 
