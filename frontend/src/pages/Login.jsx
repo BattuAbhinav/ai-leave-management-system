@@ -14,7 +14,7 @@ function Login() {
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/login",
+        "https://ai-leave-backend.onrender.com/login",
         {
           email,
           password

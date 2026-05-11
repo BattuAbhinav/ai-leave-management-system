@@ -18,7 +18,7 @@ function ApplyLeave() {
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/apply-leave",
+        "https://ai-leave-backend.onrender.com/apply-leave",
         {
           email,
           leaveType,

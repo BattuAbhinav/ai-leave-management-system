@@ -10,7 +10,7 @@ function LeaveHistory() {
     try {
 
       await axios.put(
-        `http://localhost:5000/update-leave/${id}`,
+        `https://ai-leave-backend.onrender.com/update-leave/${id}`,
         {
           status
         }
@@ -35,7 +35,7 @@ function LeaveHistory() {
     try {
 
       const response = await axios.get(
-        "http://localhost:5000/leaves"
+        "https://ai-leave-backend.onrender.com/leaves"
       )
 
       setLeaves(response.data)
