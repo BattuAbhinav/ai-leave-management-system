@@ -67,7 +67,8 @@ function Signup() {
         />
 
         <button
-          className="w-full bg-black text-white p-3 rounded-lg"
+          type="button"
+          className="w-full bg-black text-white p-3 rounded-lg cursor-pointer hover:bg-gray-800"
           onClick={handleSignup}
         >
           Signup
@@ -79,7 +80,7 @@ function Signup() {
 
           <Link
             to="/"
-            className="text-blue-600 ml-2"
+            className="text-blue-600 ml-2 cursor-pointer"
           >
             Login
           </Link>
