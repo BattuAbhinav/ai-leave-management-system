@@ -1,6 +1,15 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 function Dashboard() {
+
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+
+    localStorage.removeItem("token")
+
+    navigate("/")
+  }
 
   return (
 
@@ -10,7 +19,7 @@ function Dashboard() {
         Dashboard
       </h1>
 
-      <div className="flex gap-6">
+      <div className="flex gap-6 mb-8">
 
         <Link to="/apply-leave">
 
@@ -29,6 +38,13 @@ function Dashboard() {
         </Link>
 
       </div>
+
+      <button
+        onClick={handleLogout}
+        className="bg-red-600 text-white px-6 py-3 rounded-xl"
+      >
+        Logout
+      </button>
 
     </div>
   )

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 function Login() {
 
@@ -73,6 +73,19 @@ function Login() {
         >
           Login
         </button>
+
+        <p className="text-center mt-5">
+
+          Don't have an account?
+
+          <Link
+            to="/signup"
+            className="text-blue-600 ml-2"
+          >
+            Signup
+          </Link>
+
+        </p>
 
       </div>
 
