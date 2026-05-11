@@ -1,40 +1,35 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
-import ApplyLeave from "./pages/ApplyLeave"
 import LeaveHistory from "./pages/LeaveHistory"
-
-import {
-  Routes,
-  Route
-} from "react-router-dom"
 
 function App() {
 
   return (
 
-    <Routes>
+    <BrowserRouter>
 
-      <Route
-        path="/"
-        element={<Login />}
-      />
+      <Routes>
 
-      <Route
-        path="/dashboard"
-        element={<Dashboard />}
-      />
+        <Route
+          path="/"
+          element={<Login />}
+        />
 
-      <Route
-        path="/apply-leave"
-        element={<ApplyLeave />}
-      />
+        <Route
+          path="/dashboard"
+          element={<Dashboard />}
+        />
 
-      <Route
-        path="/leave-history"
-        element={<LeaveHistory />}
-      />
+        <Route
+          path="/history"
+          element={<LeaveHistory />}
+        />
 
-    </Routes>
+      </Routes>
+
+    </BrowserRouter>
   )
 }
 
