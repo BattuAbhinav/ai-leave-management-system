@@ -13,7 +13,7 @@ function Signup() {
 
     try {
 
-      await axios.post(
+      const response = await axios.post(
         "https://ai-leave-backend.onrender.com/signup",
         {
           email,
@@ -21,30 +21,39 @@ function Signup() {
         }
       )
 
-      alert("Signup Successful")
+      alert(response.data.message)
 
       navigate("/")
 
     } catch (error) {
 
-      alert("Signup Failed")
+      console.log(error)
+
+      if (error.response) {
+
+        alert(error.response.data.message)
+
+      } else {
+
+        alert("Signup Failed")
+      }
     }
   }
 
   return (
 
-    <div className="min-h-screen bg-slate-900 flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center bg-slate-900">
 
-      <div className="bg-white p-10 rounded-2xl w-96">
+      <div className="bg-white p-8 rounded-2xl w-[350px] shadow-2xl">
 
-        <h1 className="text-4xl font-bold text-center mb-8">
+        <h1 className="text-3xl font-bold text-center mb-6">
           Signup
         </h1>
 
         <input
           type="email"
           placeholder="Enter Email"
-          className="w-full border p-3 rounded-lg mb-4"
+          className="w-full p-3 border rounded-lg mb-4"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -52,21 +61,21 @@ function Signup() {
         <input
           type="password"
           placeholder="Enter Password"
-          className="w-full border p-3 rounded-lg mb-6"
+          className="w-full p-3 border rounded-lg mb-4"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
 
         <button
+          className="w-full bg-black text-white p-3 rounded-lg"
           onClick={handleSignup}
-          className="w-full bg-black text-white py-3 rounded-lg"
         >
           Signup
         </button>
 
-        <p className="mt-4 text-center">
+        <p className="text-center mt-5">
 
-          Already have account?
+          Already have an account?
 
           <Link
             to="/"
