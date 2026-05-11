@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
+import ApplyLeave from "./pages/ApplyLeave"
 import LeaveHistory from "./pages/LeaveHistory"
 
 function App() {
@@ -23,7 +24,12 @@ function App() {
         />
 
         <Route
-          path="/history"
+          path="/apply-leave"
+          element={<ApplyLeave />}
+        />
+
+        <Route
+          path="/leave-history"
           element={<LeaveHistory />}
         />
 
