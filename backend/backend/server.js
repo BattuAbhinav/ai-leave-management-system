@@ -36,7 +36,7 @@ app.post("/signup", async (req, res) => {
 
   try {
 
-    const { email, password } = req.body
+    const { email, password, role } = req.body
 
     const existingUser = await User.findOne({ email })
 
@@ -51,7 +51,7 @@ app.post("/signup", async (req, res) => {
 
       email,
       password,
-      role: "member"
+      role
     })
 
     await newUser.save()

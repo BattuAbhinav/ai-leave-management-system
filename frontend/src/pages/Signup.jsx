@@ -6,6 +6,7 @@ function Signup() {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [role, setRole] = useState("member")
 
   const navigate = useNavigate()
 
@@ -17,7 +18,8 @@ function Signup() {
         "https://ai-leave-backend.onrender.com/signup",
         {
           email,
-          password
+          password,
+          role
         }
       )
 
@@ -65,6 +67,22 @@ function Signup() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+
+        <select
+          className="w-full p-3 border rounded-lg mb-4"
+          value={role}
+          onChange={(e) => setRole(e.target.value)}
+        >
+
+          <option value="member">
+            Member
+          </option>
+
+          <option value="admin">
+            Admin
+          </option>
+
+        </select>
 
         <button
           type="button"
