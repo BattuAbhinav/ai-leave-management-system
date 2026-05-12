@@ -5,6 +5,8 @@ import Signup from "./pages/Signup"
 import Dashboard from "./pages/Dashboard"
 import ApplyLeave from "./pages/ApplyLeave"
 import LeaveHistory from "./pages/LeaveHistory"
+import MemberDashboard from "./pages/MemberDashboard"
+import AdminDashboard from "./pages/AdminDashboard"
 
 function App() {
 
@@ -38,7 +40,15 @@ function App() {
           path="/leave-history"
           element={<LeaveHistory />}
         />
+        <Route
+          path="/member-dashboard"
+          element={<MemberDashboard />}
+        />
 
+        <Route
+          path="/admin-dashboard"
+          element={<AdminDashboard />}
+        />
       </Routes>
 
     </BrowserRouter>
