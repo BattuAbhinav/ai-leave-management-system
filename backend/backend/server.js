@@ -50,7 +50,8 @@ app.post("/signup", async (req, res) => {
     const newUser = new User({
 
       email,
-      password
+      password,
+      role: "member"
     })
 
     await newUser.save()
@@ -95,7 +96,8 @@ app.post("/login", async (req, res) => {
 
     res.json({
 
-      message: "Login Successful"
+      message: "Login Successful",
+      role: user.role
     })
 
   } catch (error) {

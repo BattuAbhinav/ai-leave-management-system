@@ -23,7 +23,14 @@ function Login() {
 
       alert(response.data.message)
 
-      navigate("/dashboard")
+      if (response.data.role === "admin") {
+
+        navigate("/admin-dashboard")
+
+      } else {
+
+        navigate("/member-dashboard")
+      }
 
     } catch (error) {
 
@@ -80,7 +87,7 @@ function Login() {
 
           <Link
             to="/signup"
-            className="text-blue-600 ml-2"
+            className="text-blue-600 ml-2 cursor-pointer"
           >
             Signup
           </Link>
